@@ -10,5 +10,8 @@ import java.util.List;
 public class DisplayRetRsp {
     private String dataTime;
     private String recvTime;
+    private String devId;
+
+    private String devCode;
     private List<Item> items = new ArrayList();
 }

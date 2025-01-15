@@ -10,5 +10,8 @@ import java.util.List;
 public class DisplayRet {
     private Date dataTime;
     private Date recvTime;
+    private String devId;
+
+    private String devCode;
     private List<Item> items = new ArrayList();
 }

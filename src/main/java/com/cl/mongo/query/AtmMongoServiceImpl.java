@@ -28,13 +28,15 @@ public class AtmMongoServiceImpl {
         }
 //        query.with(new Sort(Direction.ASC, new String[]{"dataTime"}));
 //        query.with(new Sort(new Sort.Order(Direction.ASC,"dataTime")));
-        List<DisplayRet> devicelist = this.mongoTemplate.find(query, DisplayRet.class, "iot_display_data");
+        List<FiveData> devicelist = this.mongoTemplate.find(query, FiveData.class, "iot_display_data");
         List<DisplayRetRsp> result = new ArrayList<>();
-        for (DisplayRet displayRet : devicelist) {
+        for (FiveData displayRet : devicelist) {
             DisplayRetRsp displayRetRsp = new DisplayRetRsp();
             displayRetRsp.setDataTime(DateUtil.format(displayRet.getDataTime(),"yyyy-MM-dd HH:mm:ss"));
             displayRetRsp.setRecvTime(DateUtil.format(displayRet.getRecvTime(),"yyyy-MM-dd HH:mm:ss"));
             displayRetRsp.setItems(displayRet.getItems());
+            displayRetRsp.setDevId(displayRet.getDevId());
+            displayRetRsp.setDevCode(displayRet.getDevCode());
             result.add(displayRetRsp);
         }
         return result;
